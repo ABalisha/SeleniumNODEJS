@@ -1,7 +1,8 @@
 const {Builder, By, Key, until} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
+
 async function example() {
-  let driver = await new Builder().forBrowser('chrome --headless').build();
+  let driver = await new Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().headless()).build();
   try {
     await driver.get('http://192.168.1.1');
     await driver.findElement(By.name("name")).sendKeys('AdminGPON');
